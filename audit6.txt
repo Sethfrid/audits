@@ -1,0 +1,24 @@
+$bios = Gwmi Win32_BIOS -ComputerName localhost
+$Proc = GWmi Win32_processor -ComputerName localhost 
+$memory = GWmi Win32_physicalmemory -ComputerName localhost
+$system = GWmi Win32_ComputerSystem -ComputerName localhost
+$userprofile = GWmi Win32_Userprofile -ComputerName localhost -Filter "Special='False'"
+$operatingsystem = GWmi Win32_operatingsystem -ComputerName localhost
+$timezone = Gwmi win32_timezone -ComputerName localhost
+
+$Object = New-Object PSObject -Property @{
+TimeZone               = $timezone.caption
+OSArchitecture         = $operatingsystem.OSArchitecture
+Build                  = $operatingsystem.BuildNumber
+ComputerName           = $proc.SystemName
+Manufacturer           = $bios.Manufacturer
+Model                  = $system.Model
+'BIOS Version'         = $bios.Version
+'Serial Number'        = $bios.SerialNumber
+'Processor Name'       = $proc.name
+'Speed (MHZ)'          = $proc.CurrentClockSpeed
+'RAM (GB)'             = $system.TotalPhysicalMemory / 1GB -as [int]
+} | Out-File C:\$env:computername.txt
+Get-WmiObject -ComputerName '.' -Class Win32_UserProfile -Filter "Special='False'" |
+    select @{Name='UserName';Expression={Split-Path $_.LocalPath -Leaf}}, LocalPath, Loaded, @{Name='LastUsed';Expression={$_.ConvertToDateTime($_.LastUseTime)}}, PSComputerName |
+        sort LastUsed -Descending | Add-Content c:\$env:computername.txt

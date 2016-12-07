@@ -1,0 +1,3 @@
+wmic computersystem get "Manufacturer","Model", "TotalPhysicalMemory", "Domain", "Name", "UserName" /format:list >C:\%computername%.txt
+wmic os get "Name", "Version", "lastbootuptime", "OSArchitecture" /format:list >> C:\%computername%.txt
+wmic bios get "biosversion", "serialnumber" /format:list  >> C:\%computername%.txt

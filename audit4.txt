@@ -1,0 +1,23 @@
+Get-Item "$((Get-Item $env:USERPROFILE).Parent.FullName)\*\NTUSER.DAT" -Force |
+    ForEach-Object {
+        New-Object psobject -Property @{
+            Path = $_.DirectoryName
+            ProfileLastModified = $_.LastWriteTime
+        }
+    } | Out-File c:\$env:computername.txt
+
+
+
+Get-WmiObject Win32_Computersystem | Out-File C:\$env:computername.txt
+Get-WmiObject Win32_Bios | Out-File C:\$env:computername.txt
+Get-WmiObject Win32_operatingsystem | Out-File C:\$env:computername.txt
+Get-CimInstance -ClassName win32_operatingsystem | select csname, lastbootuptime
+(Get-WmiObject Win32_Operatingsystem).OSArchitecture
+
+
+
+
+
+
+
+

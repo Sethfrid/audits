@@ -1,0 +1,12 @@
+$bios = Gwmi Win32_BIOS -ComputerName .
+$system = GWmi Win32_ComputerSystem -ComputerName .
+$Proc = GWmi Win32_processor -ComputerName .
+
+$Object = New-Object PSObject -Property @{
+'Current User'         = $system.username 
+Type                   = $system.PCSystemType
+'Asset Tag'            = $proc.SystemName
+Manufacturer           = $bios.Manufacturer
+Model                  = $system.Model
+'Serial Number'        = $bios.SerialNumber
+} | Out-File \\alt-bfs01.altnet.ads\Software\Audit\$env:computername.txt

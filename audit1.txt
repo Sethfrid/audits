@@ -1,0 +1,13 @@
+whoami >> C:\info.txt
+systeminfo | findstr /B /C:"Host Name"  >> C:\info.txt
+systeminfo | findstr /B /C:"OS Name"  >> C:\info.txt
+systeminfo | findstr /B /C:"OS Version"  >> C:\info.txt
+systeminfo | findstr /B /C:"System Boot Time"  >> C:\info.txt
+systeminfo | findstr /B /C:"System Manufacturer"  >> C:\info.txt
+systeminfo | findstr /B /C:"System Model"  >> C:\info.txt
+systeminfo | findstr /B /C:"System Type"  >> C:\info.txt
+wmic bios get biosversion  >> C:\info.txt
+systeminfo | findstr /B /C:"Total Physical Memory"  >> C:\info.txt
+systeminfo | findstr /B /C:"Domain"  >> C:\info.txt
+wmic bios get serialnumber >> C:\info.txt
+wmic bios get serialnumber >> C:\%computername%.txt

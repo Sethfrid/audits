@@ -1,0 +1,6 @@
+wmic computersystem get "Manufacturer","Model", "TotalPhysicalMemory", "Domain", "Name", "UserName" >C:\info.txt
+wmic os get Name, Version >> C:\info.txt
+wmic os get lastbootuptime >> C:\info.txt
+wmic os get OSArchitecture  >> C:\info.txt
+wmic bios get biosversion  >> C:\info.txt
+wmic bios get serialnumber >> C:\info.txt
