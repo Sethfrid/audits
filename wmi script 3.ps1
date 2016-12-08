@@ -293,6 +293,29 @@ $Win32_Processor__FormFactor = switch ($Win32_Processor.formfactor)
       
 
 
+###########win32_PhysicalMemory Class
+
+
+
+$Win32_PhysicalMemory = get-wmiobject -class win32_PhysicalMemory
+
+      
+if ($Win32_PhysicalMemory.count -ge "1")
+{
+foreach ($memorymodule in $PhysicalMemory)
+
+{
+$Win32_PhysicalMemory__PartNumber = $memorymodule.PartNumber
+$Win32_PhysicalMemory__PositionInRow = $memorymodule.PositionInRow
+$Win32_PhysicalMemory__SerialNumber = $memorymodule.SerialNumber
+$Win32_PhysicalMemory__Manufacturer = $memorymodule.Manufacturer
+$Win32_PhysicalMemory__DeviceLocator = $memorymodule.DeviceLocator
+$Win32_PhysicalMemory__Capacity = $memorymodule.Capacity
+}
+}
+
+
+
 ###########Win32_PNPSignedDrivers
 
 
