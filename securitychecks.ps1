@@ -295,3 +295,84 @@ Get-EventLog -logname Security -InstanceId 5035 | export-clixml c:\results.xml #
 
 Get-EventLog -logname Security -InstanceId 5037 | export-clixml c:\results.xml #The Windows Firewall Driver detected critical runtime error. Terminating
 
+Get-EventLog -logname Security -InstanceId 5039 | export-clixml c:\results.xml #A registry key was virtualized.
+
+Get-EventLog -logname Security -InstanceId 5040 | export-clixml c:\results.xml #A change has been made to IPsec settings. An Authentication Set was added.
+
+Get-EventLog -logname Security -InstanceId 5041 | export-clixml c:\results.xml # A change has been made to IPsec settings. An Authentication Set was modified
+
+Get-EventLog -logname Security -InstanceId 5042 | export-clixml c:\results.xml #A change has been made to IPsec settings. An Authentication Set was deleted
+
+Get-EventLog -logname Security -InstanceId 5043 | export-clixml c:\results.xml #A change has been made to IPsec settings. A Connection Security Rule was added
+
+Get-EventLog -logname Security -InstanceId 5044 | export-clixml c:\results.xml #A change has been made to IPsec settings. A Connection Security Rule was modified
+
+Get-EventLog -logname Security -InstanceId 5045 | export-clixml c:\results.xml #A change has been made to IPsec settings. A Connection Security Rule was deleted
+
+Get-EventLog -logname Security -InstanceId 5046 | export-clixml c:\results.xml #A change has been made to IPsec settings. A Crypto Set was added
+
+Get-EventLog -logname Security -InstanceId 5047 | export-clixml c:\results.xml #A change has been made to IPsec settings. A Crypto Set was modified
+
+Get-EventLog -logname Security -InstanceId 5048 | export-clixml c:\results.xml #A change has been made to IPsec settings. A Crypto Set was deleted
+
+Get-EventLog -logname Security -InstanceId 5049 | export-clixml c:\results.xml #An IPsec Security Association was deleted
+
+Get-EventLog -logname Security -InstanceId 5050 | export-clixml c:\results.xml #An attempt to programmatically disable the Windows Firewall using a call to INetFwProfile.FirewallEnabled(FALSE)
+
+Get-EventLog -logname Security -InstanceId 5056 | export-clixml c:\results.xml #A cryptographic self test was performed
+
+Get-EventLog -logname Security -InstanceId 5057 | export-clixml c:\results.xml #A cryptographic primitive operation failed
+
+Get-EventLog -logname Security -InstanceId 5142 | export-clixml c:\results.xml #A network share object was added.
+
+Get-EventLog -logname Security -InstanceId 5143 | export-clixml c:\results.xml #A network share object was modified
+
+Get-EventLog -logname Security -InstanceId 5144 | export-clixml c:\results.xml #A network share object was deleted.
+
+Get-EventLog -logname Security -InstanceId 5145 | export-clixml c:\results.xml #A network share object was checked to see whether client can be granted desired access
+
+Get-EventLog -logname Security -InstanceId 5145 | export-clixml c:\results.xml #The Windows Filtering Platform has detected a DoS attack and entered a defensive mode; packets associated with this attack will be discarded.
+
+Get-EventLog -logname Security -InstanceId 5149 | export-clixml c:\results.xml #The DoS attack has subsided and normal processing is being resumed.
+
+Get-EventLog -logname Security -InstanceId 5150 | export-clixml c:\results.xml #The Windows Filtering Platform has blocked a packet.
+
+Get-EventLog -logname Security -InstanceId 5151 | export-clixml c:\results.xml #A more restrictive Windows Filtering Platform filter has blocked a packet.
+
+Get-EventLog -logname Security -InstanceId 5152 | export-clixml c:\results.xml #The Windows Filtering Platform blocked a packet
+
+Get-EventLog -logname Security -InstanceId 5153 | export-clixml c:\results.xml #A more restrictive Windows Filtering Platform filter has blocked a packet
+
+Get-EventLog -logname Security -InstanceId 5451 | export-clixml c:\results.xml #An IPsec Quick Mode security association was established
+
+Get-EventLog -logname Security -InstanceId 5452 | export-clixml c:\results.xml #An IPsec Quick Mode security association ended
+
+Get-EventLog -logname Security -InstanceId 5453 | export-clixml c:\results.xml #An IPsec negotiation with a remote computer failed because the IKE and AuthIP IPsec Keying Modules (IKEEXT) service is not started
+
+Get-EventLog -logname Security -InstanceId 5478 | export-clixml c:\results.xml #IPsec Services has started successfully
+
+Get-EventLog -logname Security -InstanceId 5479 | export-clixml c:\results.xml # IPsec Services has been shut down successfully
+
+Get-EventLog -logname Security -InstanceId 5480 | export-clixml c:\results.xml #IPsec Services failed to get the complete list of network interfaces on the computer
+
+Get-EventLog -logname Security -InstanceId 5483 | export-clixml c:\results.xml #IPsec Services failed to initialize RPC server. IPsec Services could not be started
+
+Get-EventLog -logname Security -InstanceId 5483 | export-clixml c:\results.xml #IPsec Services has experienced a critical failure and has been shut down
+
+Get-EventLog -logname Security -InstanceId 5485 | export-clixml c:\results.xml #IPsec Services failed to process some IPsec filters on a plug-and-play event for network interfaces
+
+Get-EventLog -logname Security -InstanceId 5632 | export-clixml c:\results.xml #A request was made to authenticate to a wireless network
+
+Get-EventLog -logname Security -InstanceId 5633 | export-clixml c:\results.xml # A request was made to authenticate to a wired network
+
+Get-EventLog -logname Security -InstanceId 6272 | export-clixml c:\results.xml #Network Policy Server granted access to a user
+
+Get-EventLog -logname Security -InstanceId 6273 | export-clixml c:\results.xml #Network Policy Server denied access to a user
+
+Get-EventLog -logname Security -InstanceId 6274 | export-clixml c:\results.xml #Network Policy Server discarded the request for a user
+
+Get-EventLog -logname Security -InstanceId 6275 | export-clixml c:\results.xml #Network Policy Server discarded the accounting request for a user
+
+Get-EventLog -logname Security -InstanceId 6276 | export-clixml c:\results.xml #Network Policy Server quarantined a user
+
+Get-EventLog -logname Security -InstanceId 6277 | export-clixml c:\results.xml #Network Policy Server granted access to a user but put it on probation because the host did not meet the defined health policy
