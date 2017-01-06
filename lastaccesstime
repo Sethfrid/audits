@@ -1,0 +1,3 @@
+$dir = "C:\test_code"
+$last = Get-ChildItem -Path $dir | Sort-Object LastAccessTime -Descending | Select-Object -First 1
+$last.name
