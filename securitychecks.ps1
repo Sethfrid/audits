@@ -1,6 +1,9 @@
 <#run each line separately not the entire script at once. These commands were run on a DC on Windows 2008 R2 standard
 I have been using this site to see what IDs might be useful at my work
 https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/Default.aspx
+
+can also add the line -After (Get-Date).AddDays(-1) before the export
+
 #>
 
 Get-EventLog -logname Security -InstanceId 1102 | export-clixml c:\results.xml #find out who and when the audit log was cleared
