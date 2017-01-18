@@ -1,4 +1,6 @@
-﻿###########Win32_ComputerSystem
+﻿"$(Get-Date -format F) Start logging"
+
+###########Win32_ComputerSystem
 
 $Win32_ComputerSystem = gwmi Win32_ComputerSystem
 

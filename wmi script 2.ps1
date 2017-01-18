@@ -1,14 +1,14 @@
-﻿$computer = gwmi Win32_ComputerSystem | select Domain, Model, Name, Username, Manufacturer, NumberofProcessors, TotalPhysicalMemory, Status 
+﻿"$(Get-Date -format F) Start logging"
 
+
+$computer = gwmi Win32_ComputerSystem
+
+
+$computer = gwmi Win32_ComputerSystem | select Domain, Model, Name, Username, Manufacturer, NumberofProcessors, TotalPhysicalMemory, Status 
 
 
 ###############Win32_ComputerSystem class###############
 
-
-
-write-host ""
-write-host "Win32_ComputerSystem" -BackgroundColor Black
-write-host ""
 
 write-output $computer 
 
@@ -149,15 +149,7 @@ write-output "Install Date: " $computer.ConvertToDateTime($computer.InstallDate)
 ###############Win32_OperatingSystem Class###############
 
 
-
 $computer = gwmi Win32_OperatingSystem
-
-
-
-write-host ""
-write-host "Win32_OperatingSystem" -BackgroundColor Black
-write-host ""
-
 
 
 $operatingsystemsku = switch ($computer.operatingsystemsku) 
@@ -226,11 +218,6 @@ write-output $computer
 ###############Win32_Processor Class###############
 
 
-
-write-host ""
-write-host "Win32_Processor Class" -BackgroundColor Black
-write-host ""
-
 $computer = gwmi Win32_Processor | select CurrentVoltage, MaxClockSpeed, Revision, Description, Family, L2CacheSize, L3CacheSize, Name, NumberOfCores, NumberOfEnabledCore, NumberofLogicalProcessors, ProcessorId
 write-output $computer
 
@@ -272,12 +259,6 @@ $formfactor = switch ($computer)
 ###############Win32_PNPSignedDriver Class###############
 
 
-
-write-host ""
-write-host "Win32_PnPSignedDriver Class" -BackgroundColor Black
-write-host ""
-
-
 $NonMsDrivers = gwmi Win32_PnPSignedDriver | select devicename, driverversion, DeviceID | ft -Wrap | Where-Object -FilterScript {$_.DriverProviderName -ne "Microsoft"} 
 Write-Output $NonMsDrivers 
 
@@ -285,14 +266,5 @@ Write-Output $NonMsDrivers
 ###############Win32_Product Class###############
 
 
-
-
-write-host ""
-write-host "Win32_Producted Class" -BackgroundColor Black
-write-host ""
-
-
-
 $Win32_Programs = gwmi Win32_Product | select Name, Version, PackageName, InstallDate | ft -Wrap
 Write-Output $Win32_Programs 
-
