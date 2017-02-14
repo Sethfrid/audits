@@ -1,0 +1,11 @@
+# Trying to use python to audit a linux system 
+#v 0.1
+#Currently has to be run per line
+
+import platform
+
+platform.machine()
+platform.platform()
+platform.version()
+platform.processor()
+platform.architecture()
