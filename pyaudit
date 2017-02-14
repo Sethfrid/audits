@@ -1,0 +1,9 @@
+# This would be using the import OS function
+#Has to run this 1 line at a time
+#version 0.1
+
+import os
+
+os.getlogin()
+os.getpid()
+os.uname()
