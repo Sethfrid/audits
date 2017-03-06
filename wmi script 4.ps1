@@ -260,10 +260,10 @@ $Capacity = $memorymodule.Capacity
 ###########Win32_PNPSignedDrivers
 
 
-$NonMsDrivers = Get-WmiObject -class Win32_PnPSignedDriver | select devicename, driverversion, DeviceID | ft -Wrap | Where-Object -FilterScript {$_.DriverProviderName -ne "Microsoft"} 
+$NonMsDrivers = gwmi Win32_PnPSignedDriver | select devicename, driverversion, DeviceID | ft -Wrap | Where-Object -FilterScript {$_.DriverProviderName -ne "Microsoft"} 
 
 
 ###########Win32_Product
 
 
-$Programs = Get-WmiObject -class Win32_Product | select Name, Version, PackageName, InstallDate | ft -Wrap
+$Programs = gwmi Win32_Product | select Name, Version, PackageName, InstallDate | ft -Wrap
