@@ -1,0 +1,3 @@
+#AD audit where all accounts are enabled and password set to never expire and filtered down to Name and to export to txt
+import-admodule activedirectory
+get-aduser -filter {Enabled -eq "True" -and PasswordNeverExpires -eq "True"} | select name | out-file c:\temp\list.txt
