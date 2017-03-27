@@ -3,7 +3,9 @@ Auditing on a linux machine, the following was done on a ubuntu spin of Linux
 Install first lshw, can also install the GUI version which is LSHW-gtk
 Lynis is a system security audit - just run sudo lynis system audit
 
-v 0.01
+v 0.02
+
+The commands below are run per line, i decided to add a bash script to learn how to gather information on a linux machine.
 #>
 
 sudo lshw # this will give you all information on the system
@@ -17,3 +19,22 @@ sudo hdparm -i /dev/cdrom #info on the CD ROM
 cat /proc/cpuinfo | grep 'model name' | uniq # CPU info
 
 cat /proc/cpuinfo | grep 'vendor_id' #Vendor of CPU
+
+
+#################################
+
+#!/bin/bash
+
+date #print current date
+
+uname -s #OS type
+
+uname -m #OS Architecture
+
+w #users logged in
+
+free -m #free space in MB
+
+df #Free disk space
+
+cat /proc/cpuinfo #cpu info
