@@ -27,14 +27,18 @@ cat /proc/cpuinfo | grep 'vendor_id' #Vendor of CPU
 
 date #print current date
 
-uname -s #OS type
-
-uname -m #OS Architecture
+uptime #How long system has been up
 
 w #users logged in
 
-free -m #free space in MB
+hostname #nostname of computer
+
+domainname #domain computer is on
 
 df #Free disk space
 
 cat /proc/cpuinfo #cpu info
+
+cat /proc/meminfo #memory info
+
+cat /proc/version #version of OS 
