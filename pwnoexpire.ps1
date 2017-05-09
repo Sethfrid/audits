@@ -1,0 +1,1 @@
+﻿search-adaccount -PasswordNeverExpires | Select Name, LastLogonDate

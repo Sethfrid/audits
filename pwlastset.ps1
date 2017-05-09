@@ -1,0 +1,1 @@
+﻿get-aduser -filter * -Properties PasswordLastSet | Select Name, Passwordlastset
