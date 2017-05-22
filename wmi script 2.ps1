@@ -1,5 +1,9 @@
 ﻿"$(Get-Date -format F) Start logging"
 
+function get-auditinfo
+
+{
+
 $computer = gwmi Win32_ComputerSystem | select Domain, Model, Name, Username, Manufacturer, NumberofProcessors, TotalPhysicalMemory, Status 
 
 
@@ -264,3 +268,5 @@ Write-Output $NonMsDrivers
 
 $Win32_Programs = gwmi Win32_Product | select Name, Version, PackageName, InstallDate | ft -Wrap
 Write-Output $Win32_Programs 
+
+}
