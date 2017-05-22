@@ -1,9 +1,5 @@
 ﻿"$(Get-Date -format F) Start logging"
 
-
-$computer = gwmi Win32_ComputerSystem
-
-
 $computer = gwmi Win32_ComputerSystem | select Domain, Model, Name, Username, Manufacturer, NumberofProcessors, TotalPhysicalMemory, Status 
 
 
