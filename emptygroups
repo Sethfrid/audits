@@ -1,5 +1,6 @@
 <#
-Credit to Ashley McGlone for the original script. I just made minor adjustment to it to suit myself for work use.
+Credit to Ashley McGlone for the original script. I just made minor adjustment to it to suit myself for work use. The result will show only 
+the groups where the member is 0 and member of count is 0
 
 https://blogs.technet.microsoft.com/ashleymcglone/2014/10/29/microsoft-virtual-academy-using-powershell-for-active-directory/
 
