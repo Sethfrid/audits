@@ -5,12 +5,15 @@ https://blogs.technet.microsoft.com/ashleymcglone/2014/10/29/microsoft-virtual-a
 
 #>
 
-$GroupList = Get-ADGroup -Filter * -Properties Name, DistinguishedName, GroupCategory, GroupScope, whenCreated, whenChanged, member, memberOf, SamAccountName, Description |            
-    Select-Object Name, DistinguishedName, GroupCategory, GroupScope, whenCreated, whenChanged, member, memberOf, SamAccountName, Description, `
+$GroupList = Get-ADGroup -Filter * -Properties Name, DistinguishedName, GroupCategory, GroupScope, whenCreated, whenChanged, '
+member, memberOf, SamAccountName, Description |            
+    Select-Object Name, DistinguishedName, GroupCategory, GroupScope, whenCreated, whenChanged, member, memberOf, SamAccountName, '
+    Description, `
         @{name='MemberCount';expression={$_.member.count}}, `
         @{name='MemberOfCount';expression={$_.memberOf.count}}, `
         @{name='DaysSinceChange';expression=`
             {[math]::Round((New-TimeSpan $_.whenChanged).TotalDays,0)}} | Sort-Object Name            
             
-$GroupList | Select-Object Name, SamAccountName, Description, DistinguishedName, GroupCategory, GroupScope, whenCreated, whenChanged, DaysSinceChange, MemberCount, MemberOfCount, |            
-    Export-CSV .\Group.csv -NoTypeInformation
+$GroupList | Select-Object Name, SamAccountName, Description, DistinguishedName, GroupCategory, GroupScope, whenCreated, '
+whenChanged, DaysSinceChange, membercount, memberofcount|  where {($_.membercount -eq "0") -and ($_.memberofcount -eq "0")} | 
+Export-CSV .\Group.csv -NoTypeInformation
