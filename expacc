@@ -2,4 +2,4 @@
 Search AD for a list of disabled user accounts
 #>
 
-search-adaccount -accountdsiabled -usersonly | select Name, Lastlogondate, Enabled
+search-adaccount -accountdsiabled -usersonly | select Name, Lastlogondate, Enabled -notypeinformation
