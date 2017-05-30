@@ -1,0 +1,16 @@
+<#
+Credit to Ashley McGlone for the original script. I just made minor adjustment to it to suit myself for work use.
+
+https://blogs.technet.microsoft.com/ashleymcglone/2014/10/29/microsoft-virtual-academy-using-powershell-for-active-directory/
+
+#>
+
+$GroupList = Get-ADGroup -Filter * -Properties Name, DistinguishedName, GroupCategory, GroupScope, whenCreated, whenChanged, member, memberOf, SamAccountName, Description |            
+    Select-Object Name, DistinguishedName, GroupCategory, GroupScope, whenCreated, whenChanged, member, memberOf, SamAccountName, Description, `
+        @{name='MemberCount';expression={$_.member.count}}, `
+        @{name='MemberOfCount';expression={$_.memberOf.count}}, `
+        @{name='DaysSinceChange';expression=`
+            {[math]::Round((New-TimeSpan $_.whenChanged).TotalDays,0)}} | Sort-Object Name            
+            
+$GroupList | Select-Object Name, SamAccountName, Description, DistinguishedName, GroupCategory, GroupScope, whenCreated, whenChanged, DaysSinceChange, MemberCount, MemberOfCount, |            
+    Export-CSV .\Group.csv -NoTypeInformation
