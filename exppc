@@ -2,4 +2,4 @@
 Search Ad for a list of disabled computers
 #>
 
-search-adaccount -accountdisabled -computersonly | select name, lastlogondate, enabled
+search-adaccount -accountdisabled -computersonly | select name, lastlogondate, enabled -notypeinformation
