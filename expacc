@@ -1,0 +1,5 @@
+<#
+Search AD for a list of expired user accounts
+#>
+
+search-adaccount -accountdsiabled -usersonly | select Name, Lastlogondate, Enabled
