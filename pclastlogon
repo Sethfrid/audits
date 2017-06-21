@@ -1,1 +1,0 @@
-get-adcomputer -properties lastlogondate -filter * | select name, lastlogondate | where {$_.name -like ""} | sort lastlogondate | out-file $env:userprofile\desktop.computers.txt
