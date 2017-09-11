@@ -3,3 +3,7 @@ This is for checking the log pipeline execution details if it is enabled on the 
 #>
 
 get-eventlog -logname "Windows Powershell" -instanceid 800 | export-csv c:\windows\temp\results.csv
+
+#Run this one for faster result
+
+get-eventlog -logname "Windows Powershell" -instanceid 800
