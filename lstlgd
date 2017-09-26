@@ -1,0 +1,3 @@
+# Get last log on date for a single computer
+
+get-adcomputer computername -properties * | select lastlogondate
