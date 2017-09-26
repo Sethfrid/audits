@@ -1,0 +1,3 @@
+# Find out the current user that is logged onto a PC
+
+gwmi -cn compname -class win32_computersystem | select username
