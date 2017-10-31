@@ -13,5 +13,4 @@ $GroupList = Get-ADGroup -Filter * -Properties Name, DistinguishedName, GroupCat
         @{name='DaysSinceChange';expression=`
             {[math]::Round((New-TimeSpan $_.whenChanged).TotalDays,0)}} | Sort-Object Name            
             
-$GroupList | Select-Object Name, SamAccountName, Description, DistinguishedName, GroupCategory, GroupScope, whenCreated, whenChanged DaysSinceChange, membercount, memberofcount|  where {($_.membercount -eq "0") -and ($_.memberofcount -eq "0")} | 
-Export-CSV .\Group.csv -NoTypeInformation
+$GroupList | Select Name, SamAccountName, Description, DistinguishedName, GroupCategory, GroupScope, whenCreated, whenChanged, DaysSinceChange, membercount, memberofcount |  where {($_.membercount -eq "0") -and ($_.memberofcount -eq "0")} | Export-CSV .\Group.csv -NoTypeInformation
