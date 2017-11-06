@@ -1,0 +1,3 @@
+#checking a single user
+
+get-aduser SAMACCOUNT -Properties Lockedout
