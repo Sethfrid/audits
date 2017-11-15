@@ -1,0 +1,7 @@
+# Handy command to find out the hostname if you know the IP Address
+
+(Get-WmiObject -Class win32_ComputerSystem -ComputerName '127.0.0.1').Name
+
+or
+
+[System.Net.Dns]::GetHostByAddress('127.0.0.1')
