@@ -1,0 +1,1 @@
+get-aduser -filter 'enabled -eq $true' | select name, userprincipalname | out-file c:\temp\results.txt
