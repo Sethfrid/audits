@@ -1,0 +1,3 @@
+#Checking if All disabled users have the field Company filled
+
+get-aduser -filter {Company -eq 'Company' -AND Enabled -eq 'False'} 
