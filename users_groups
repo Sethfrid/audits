@@ -1,0 +1,9 @@
+$server = "servername"
+$computer = [ADSI]"WinNT://$server"
+$computer.psbase.children | where { $_.psbase.schemaClassName -eq 'group' } | foreach {
+    write-output $_.name >> c:\temp\group.txt
+    write-output "------" >> c:\temp\group.txt
+    $group =[ADSI]$_.psbase.Path
+    $group.psbase.Invoke("Members") | foreach {$_.GetType().InvokeMember("Name", 'GetProperty', $null, $_, $null) | write-output >> c:\temp\group.txt }
+    
+} 
