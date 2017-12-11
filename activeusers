@@ -1,1 +1,3 @@
 get-aduser -filter 'enabled -eq $true' | select name, userprincipalname | out-file c:\temp\results.txt
+
+ get-aduser -filter {Enabled -eq $True} -properties * | Select GivenName, Surname, Title, telephoneNumber | Sort GivenName | Out-File c:\temp\list.csv
