@@ -207,7 +207,7 @@ $operatingsystemsku = switch ($computer.operatingsystemsku)
      write-output "Operating System SKU: " $operatingsystemsku
 
 $computer = gwmi Win32_OperatingSystem
-write-host "Last Boot Up Time: " $computer.ConvertToDateTime($computer.LastBootUpTime) 
+write-output "Last Boot Up Time: " $computer.ConvertToDateTime($computer.LastBootUpTime) 
 
 $computer = gwmi Win32_OperatingSystem | select numberofusers, OSArchitecture, SerialNumber, ServicePackMajorVersion, ServicePackMinorVersion, SystemDevice, TotalVirtualMemorySize, TotalVisibleMemorySize, Version, BuildNumber, BuildType, Caption, FreePhysicalMemory, FreeSpaceInPagingFiles, FreeVirtualMemory
 
