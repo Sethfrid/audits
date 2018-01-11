@@ -1,4 +1,4 @@
-# Handy command to find out the hostname if you know the IP Address
+# Handy command to find out the hostname if you know the IP Address. Credit to https://www.reddit.com/user/Lee_Dailey
 
 (Get-WmiObject -Class win32_ComputerSystem -ComputerName '127.0.0.1').Name
 
