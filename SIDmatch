@@ -1,0 +1,3 @@
+#Match SID to a User's AD
+
+get-aduser  -filter * -properties SID | where {$_.SID -eq ' n-n-n-nn-nnnnnnnn-nnnnnnnnnn-nnnnnnnnnn-nnnn '}
