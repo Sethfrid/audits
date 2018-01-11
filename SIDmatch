@@ -1,3 +1,5 @@
-#Match SID to a User's AD
+#Match SID to a User's AD account or a computer's AD account
 
 get-aduser  -filter * -properties SID | where {$_.SID -eq ' n-n-n-nn-nnnnnnnn-nnnnnnnnnn-nnnnnnnnnn-nnnn '}
+
+get-adcomputer  -filter * -properties SID | where {$_.SID -eq ' n-n-n-nn-nnnnnnnn-nnnnnnnnnn-nnnnnnnnnn-nnnn '}
