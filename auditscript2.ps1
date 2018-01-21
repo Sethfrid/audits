@@ -19,7 +19,7 @@ $info = [ordered] @{
           "Part of Domain"             = $CS.PartOfDomain
           "System Type"                = $CS.SystemType
           "Boot up State"              = $CS.BootupState 
-          "Date of Install"            = $CS.InstallDate
+          "Date of Install"            = $CS.ConvertToDateTime($CS.InstallDate)
           "Hypervisor Present"         = $CS.hypervisorpresent
           "Domain Role"                = $DR = switch ($CS.domainrole) 
                                          {
@@ -104,7 +104,7 @@ $info = [ordered] @{
           "Total Virtual Memory Size"  = $OS.totalvirtualmemorysize 
           "Total Visible Memory Size"  = $OS.totalvisiblememorysize 
           "Free Virtual Memory"        = $OS.freevirtualmemory
-          "Last bootup time"           = $OS.lastbootuptime
+          "Last bootup time"           = $OS.ConvertToDateTime($OS.lastbootuptime)
           "Number of Users"            = $OS.numberofusers
           "System Device"              = $OS.systemdevice
           "Caption"                    = $OS.caption
