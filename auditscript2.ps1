@@ -19,7 +19,7 @@ $info = [ordered] @{
           "Part of Domain"             = $CS.PartOfDomain
           "System Type"                = $CS.SystemType
           "Boot up State"              = $CS.BootupState 
-          "Date of Install"            = $CS.ConvertToDateTime($CS.InstallDate)
+          "Date of Install"            = $OS.ConvertToDateTime($OS.InstallDate)
           "Hypervisor Present"         = $CS.hypervisorpresent
           "Domain Role"                = $DR = switch ($CS.domainrole) 
                                          {
