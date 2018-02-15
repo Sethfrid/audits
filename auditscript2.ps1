@@ -1,3 +1,14 @@
+<#
+.\synopsis
+Gets basic info for the computer
+.\description
+Provides computer system information
+Operating system information
+Process information
+To get the information to screen need to use $info
+
+#>
+
 [cmdletbinding()]
 param(
         [Parameter(Mandatory=$True)]
