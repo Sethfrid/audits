@@ -4,9 +4,9 @@ param(
         [string]$compname
      )
 
-$CS = gwmi win32_computersystem
-$OS = gwmi win32_operatingsystem
-$Proc = gwmi win32_process
+$CS = gwmi win32_computersystem -cn $compname
+$OS = gwmi win32_operatingsystem -cn $compname
+$Proc = gwmi win32_process -cn $compname
 
 $info = [ordered] @{
           "Computer name"              = $CS.PSComputername
