@@ -6,6 +6,8 @@ Provides computer system information
 Operating system information
 Process information
 To get the information to screen need to use $info   
+Win32 classes will no longer be updated by MS
+
 #>
 
 [cmdletbinding()]
