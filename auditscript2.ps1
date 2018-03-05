@@ -13,12 +13,14 @@ Win32 classes will no longer be updated by MS
 [cmdletbinding()]
 param(
         [Parameter(Mandatory=$True)]
-        [string]$compname
+        [string[]]$compname
      )
+     
+foreach ($comp in $compname) {
 
-$CS = gwmi win32_computersystem -cn $compname
-$OS = gwmi win32_operatingsystem -cn $compname
-$Proc = gwmi win32_process -cn $compname
+$CS = gwmi win32_computersystem -cn $comp
+$OS = gwmi win32_operatingsystem -cn $comp
+$Proc = gwmi win32_process -cn $comp
 
 $info = [ordered] @{
           "Computer name"              = $CS.PSComputername
@@ -43,6 +45,7 @@ $info = [ordered] @{
                                             5 {"Primary Domain Controller"}
                                             default {"Unknown Value - Check MS for updated list"}
                                          }  
+                                         
           "PC System Type"             = $PCST = switch ($CS.pcsystemtype) 
                                          {
                                             0 {"Unspecified"}
@@ -212,4 +215,6 @@ $info = [ordered] @{
                                          23 {"LGA"}
                                          default {"Unknown Value - Check MS for updated list"}
                                       }  
+}
+
 }
