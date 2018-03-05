@@ -217,4 +217,4 @@ $info = [ordered] @{
                                       }  
 }
 
-}
+} write-output $info
