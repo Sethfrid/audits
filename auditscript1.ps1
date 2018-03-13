@@ -7,9 +7,6 @@ function get-auditinfo
 $computer = gwmi Win32_ComputerSystem | select Domain, Model, Name, Username, Manufacturer, NumberofProcessors, TotalPhysicalMemory, Status 
 
 
-###############Win32_ComputerSystem class###############
-
-
 write-output $computer 
 
 $computer = gwmi Win32_ComputerSystem
@@ -145,10 +142,6 @@ $computer = gwmi Win32_OperatingSystem
 write-output "Install Date: " $computer.ConvertToDateTime($computer.InstallDate) 
 
 
-
-###############Win32_OperatingSystem Class###############
-
-
 $computer = gwmi Win32_OperatingSystem
 
 
@@ -214,10 +207,6 @@ $computer = gwmi Win32_OperatingSystem | select numberofusers, OSArchitecture, S
 write-output $computer
 
 
-
-###############Win32_Processor Class###############
-
-
 $computer = gwmi Win32_Processor | select CurrentVoltage, MaxClockSpeed, Revision, Description, Family, L2CacheSize, L3CacheSize, Name, NumberOfCores, NumberOfEnabledCore, NumberofLogicalProcessors, ProcessorId
 write-output $computer
 
@@ -254,17 +243,8 @@ $formfactor = switch ($computer)
      write-output "Memory Form Factor: " $formfactor
       
 
-
-      
-###############Win32_PNPSignedDriver Class###############
-
-
 $NonMsDrivers = gwmi Win32_PnPSignedDriver | select devicename, driverversion, DeviceID | ft -Wrap | Where-Object -FilterScript {$_.DriverProviderName -ne "Microsoft"} 
 Write-Output $NonMsDrivers 
-
-
-###############Win32_Product Class###############
-
 
 $Win32_Programs = gwmi Win32_Product | select Name, Version, PackageName, InstallDate | ft -Wrap
 Write-Output $Win32_Programs 
