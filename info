@@ -1,0 +1,75 @@
+<#
+This script is for gathering information on a computer. I saw similar ones for PS Pentesting so i decided to create one myself based on 
+looking at the different get commands and see which ones provides information that would prove useful.
+Version 0.3
+
+#>
+
+
+[cmdletbinding()]
+
+param (
+
+	[parameter(mandatory=$true)]
+	[string]$pcname	
+
+)
+
+
+$bitvol = Get-BitLockerVolume 
+
+$PCinfo = Get-ComputerInfo 
+
+$diskview = Get-DiskStorageNodeView 
+
+$nadap = get-netadapter
+
+$netprof = get-netconnectionprofile 
+
+$netfwprof = get-netfirewallrule
+
+get-netneighbour | ipaddress, linklayeraddress, state
+
+$info = @{
+	  "Bit Locker Protection Status" = $bitvol.protectionstatus
+	  "Bit Locker Volume Type" = $bitvol.volumetype
+	  "Bit Locker Mount Point" = $bitvol.mountpoint
+	  "Bit Locker Vol status" = $bitvol.volumestatus
+	  "Windows Name" = $PCinfo.windowsproductname
+	  "Bios ver." = $pcinfo.biosbiosversion
+ 	  "Bios Manufac." $pcinfo.biosmanufacturer
+ 	  "Computer System Caption" = $pcinfo.cscaption
+ 	  "Computer Domain" = $pcinfo.csdomain
+ 	  "Domain Role" = $pcinfo.csdomainrole
+ 	  "Processor Info." = $pcinfo.csprocessor
+	  "System Architecture" = $pcinfo.osarchitecture
+	  "Disk Number" = $diskview.disknumber
+ 	  "Disk Health" = $diskview.healthstatus
+ 	  "Disk Permission" = $diskview.isreadonly
+ 	  "Disk Storage Info." = $diskview.isofflinestoragenode
+	  "Adapter Name" = $nadap.name
+ 	  "Adapter Status" = $nadap.status
+ 	  "Adapter Mac Add." = $nadap.macaddress
+          "Domain Authenticated" = $netprof.domanauthenticated
+	  "Connection Display Name" = $netfwprof.displayname
+ 	  "Connection Profile" = $netfwprof.profile
+ 	  "Connection Status" = $netfwprof.status
+
+
+}
+
+
+
+get-process -includeusername | select username, name, id
+get-systemdriver
+Get-NetTCPConnection
+get-eventlog
+get-package
+get-hotfix
+
+
+
+
+
+
+
