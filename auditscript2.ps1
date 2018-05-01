@@ -216,5 +216,5 @@ $info = [ordered] @{
                                          default {"Unknown Value - Check MS for updated list"}
                                       }  
 }
-
-} write-output $info
+write-output $info
+} 
