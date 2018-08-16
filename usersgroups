@@ -1,0 +1,1 @@
+Get-ADUser -Filter {enabled -eq $true} -Properties memberof |select name, @{L='Groups'; E={$_.memberof}} | Export-Csv -Path c:\results.csv -NoTypeInformation
