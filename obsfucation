@@ -1,0 +1,33 @@
+#This is for  playing around with obfuscation
+
+$a = "g"
+
+$b = "e"
+
+$c = "t"
+
+$d= "-"
+
+$e = "p"
+
+$f = "r"
+
+$g = "o"
+
+$h = "c"
+
+$i ="s"
+
+
+$1 = $a + $b + $c + $d + $e + $f + $g + $h + $b + $i + $i
+
+. $1.
+
+
+. $1
+
+#it can be shortened down to just
+
+$1 = $e + $i
+
+.$1
