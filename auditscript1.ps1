@@ -1,14 +1,16 @@
-﻿"$(Get-Date -format F) Start logging"
+#This script for computer audits and outs the result to the screen.
+
+"$(Get-Date -format F) Start logging"
 
 function get-auditinfo
 
 {
-
+# Returns some info of the Computer System
 $computer = gwmi Win32_ComputerSystem | select Domain, Model, Name, Username, Manufacturer, NumberofProcessors, TotalPhysicalMemory, Status 
 
 
 write-output $computer 
-
+#Returns a role rather than a value for the Domain Role
 $computer = gwmi Win32_ComputerSystem
 $domainrole = switch ($computer.domainrole) 
          {
@@ -38,7 +40,7 @@ else
 write-output 'Hyper Visor Present: False' 
 
 }
-
+#Returns PC System Type rather than a value
 $computer = gwmi Win32_ComputerSystem | select pcsystemtype
 
 $pcsystemtype = switch ($computer) 
@@ -67,7 +69,7 @@ $computer = gwmi win32_computersystem | select bootupstate
 write-output "Boot Up State: " $computer
 
 $computer = gwmi Win32_ComputerSystem | select powersupplystate
-
+#Returns the Power Supply State rather than a value
 $powersupplystate = switch ($computer) 
          {
             1 {"Other"}
@@ -82,7 +84,7 @@ $powersupplystate = switch ($computer)
       
 
 $computer = gwmi Win32_ComputerSystem | select powerstate
-
+#Returns Power State rather than a value
 $powerstate = switch ($computer) 
          {
             0 {"Unknown"}
@@ -103,7 +105,7 @@ $powerstate = switch ($computer)
       
 
 $computer = gwmi Win32_ComputerSystem | select thermalstate
-
+#Returns Thermal State rather than a value
 $thermalstate = switch ($computer) 
          {
             1 {"Other"}
@@ -119,7 +121,7 @@ $thermalstate = switch ($computer)
       
 
 $computer = gwmi Win32_ComputerSystem | select wakeuptype
-
+#Returns Wake Up Type rather than a value
 $wakeuptype = switch ($computer) 
          {
             0 {"Reserved"}
@@ -138,12 +140,12 @@ $wakeuptype = switch ($computer)
       
 
 $computer = gwmi Win32_OperatingSystem
-
+#Info on the computer's OS
 write-output "Install Date: " $computer.ConvertToDateTime($computer.InstallDate) 
 
 
 $computer = gwmi Win32_OperatingSystem
-
+#Returns the OS type rather than a value
 
 $operatingsystemsku = switch ($computer.operatingsystemsku) 
          {
@@ -211,7 +213,7 @@ $computer = gwmi Win32_Processor | select CurrentVoltage, MaxClockSpeed, Revisio
 write-output $computer
 
 $computer = gwmi win32_physicalmemory | select formfactor
-
+#Returns the type of memory in the computer
 $formfactor = switch ($computer) 
          {
             0 {"Unknown"}
@@ -242,10 +244,11 @@ $formfactor = switch ($computer)
          }  
      write-output "Memory Form Factor: " $formfactor
       
-
+#Returns the Microsoft Drivers installed
 $NonMsDrivers = gwmi Win32_PnPSignedDriver | select devicename, driverversion, DeviceID | ft -Wrap | Where-Object -FilterScript {$_.DriverProviderName -ne "Microsoft"} 
 Write-Output $NonMsDrivers 
 
+#Returns Installed software
 $Win32_Programs = gwmi Win32_Product | select Name, Version, PackageName, InstallDate | ft -Wrap
 Write-Output $Win32_Programs 
 
