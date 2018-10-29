@@ -1,4 +1,6 @@
-﻿function show-groups {
+#This is an expansion of the empty groups script by Ashley McGlone where I put into a module
+
+function show-groups {
 
 $GroupList = Get-ADGroup -Filter * -Properties Name, DistinguishedName, GroupCategory, GroupScope, whenCreated, whenChanged, member, memberOf, SamAccountName, Description |            
     Select-Object Name, DistinguishedName, GroupCategory, GroupScope, whenCreated, whenChanged, member, memberOf, SamAccountName, Description, 
