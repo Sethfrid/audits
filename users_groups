@@ -1,8 +1,8 @@
 #PowerShell Script to list a server's users, groups, permissions, etc.
 #https://social.technet.microsoft.com/Forums/lync/en-US/5b2a4c00-d67f-41b6-b0e4-f00ae988db5f/powershell-script-to-list-a-servers-users-groups-permissions-etc?forum=winserverpowershell
 
-$server = "servername"
-$computer = [ADSI]"WinNT://$server"
+$server = "servername"# Edit the server name
+$computer = [ADSI]"WinNT://$server" #edit the UNC
 $computer.psbase.children | where { $_.psbase.schemaClassName -eq 'group' } | foreach {
     write-output $_.name >> c:\temp\group.txt
     write-output "------" >> c:\temp\group.txt
