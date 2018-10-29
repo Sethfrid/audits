@@ -1,3 +1,3 @@
-Count how many people in a particular Company
+#Count how many people in a particular Company
 
 (get-aduser -filter * -properties Company | where {$_.Company -eq "Company Name"}).count
