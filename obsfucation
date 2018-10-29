@@ -1,4 +1,6 @@
-#This is for  playing around with obfuscation
+#This is for  playing around with obfuscation, this is for running the command get-process. Can also be used to CD as well.
+#From this handy video https://www.youtube.com/watch?v=uE8IAxM_BhE by Daniel Bohannan
+
 
 $a = "g"
 
