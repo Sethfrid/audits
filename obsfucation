@@ -33,3 +33,9 @@ $1 = $a + $b + $c + $d + $e + $f + $g + $h + $b + $i + $i
 $1 = $e + $i
 
 .$1
+
+################ get-process
+
+$u=[string][char[]](103,112,115) 
+
+iex ($u.Replace(' ','')) 
