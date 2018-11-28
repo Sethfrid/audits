@@ -34,8 +34,6 @@ $1 = $e + $i
 
 .$1
 
-################ get-process
+################ get-process using ascii code instead of characters. This is gps which is an alias.
 
-$u=[string][char[]](103,112,115) 
-
-iex ($u.Replace(' ','')) 
+.(-join[char[]](103,11,115))
