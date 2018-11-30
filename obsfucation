@@ -37,3 +37,26 @@ $1 = $e + $i
 ################ get-process using ascii code instead of characters. This is gps which is an alias.
 
 .(-join[char[]](103,11,115))
+
+################
+
+$u=[string][char[]](103,112,115) 
+
+iex ($u.Replace(' ','')) 
+
+gps
+
+####################################
+
+
+$u=-join[char[]](103,112,115) 
+
+iex $u
+
+gps
+
+#####################
+
+#Get all active users with company name
+
+.(-join[char[]](103,101,116,45,97,100,117,115,101,114)) -fIlTeR {EnAbLeD -eq $TrUe} -pRoPeRtIeS `*|`? `CoMpANy -eq (-join[char[]](70,105,110,97,110,99,101))|`SeLeCT `GivenName,`Surname,`mail|`SoRt `GivenName 
