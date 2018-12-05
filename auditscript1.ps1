@@ -245,11 +245,11 @@ $formfactor = switch ($computer)
      write-output "Memory Form Factor: " $formfactor
       
 #Returns the Microsoft Drivers installed
-$NonMsDrivers = gwmi Win32_PnPSignedDriver | select devicename, driverversion, DeviceID | ft -Wrap | Where-Object -FilterScript {$_.DriverProviderName -ne "Microsoft"} 
+$NonMsDrivers = gwmi Win32_PnPSignedDriver | select devicename, driverversion, DeviceID | ft -Wrap | Where -FilterScript {$_.DriverProviderName -ne "Microsoft"} 
 Write-Output $NonMsDrivers 
 
 #Returns Installed software
-$Win32_Programs = gwmi Win32_Product | select Name, Version, PackageName, InstallDate | ft -Wrap
+$Win32_Programs = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* |  Select DisplayName, DisplayVersion, Publisher, InstallDate
 Write-Output $Win32_Programs 
 
 }
